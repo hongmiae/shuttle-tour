@@ -81,7 +81,7 @@ export default function CustomerLayout({
           </Link>
           <nav style={{ display: "flex", alignItems: "center", gap: "20px" }}>
             <Link
-              href="/"
+              href="/#search"
               style={{
                 fontFamily: "'League Spartan', sans-serif",
                 fontSize: "13px",

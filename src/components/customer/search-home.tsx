@@ -16,7 +16,7 @@ export function SearchHome({ tours }: { tours: TourWithSeats[] }) {
   const [dateTo, setDateTo] = useState("");
   const [location, setLocation] = useState("");
   const [people, setPeople] = useState(1);
-  const [searched, setSearched] = useState(false);
+  const [searched, setSearched] = useState(true);
 
   useEffect(() => {
     const link = document.createElement("link");
@@ -197,7 +197,7 @@ export function SearchHome({ tours }: { tours: TourWithSeats[] }) {
           </p>
 
           {/* Search Bar */}
-          <form onSubmit={handleSearch}>
+          <form id="search" onSubmit={handleSearch}>
             <div
               style={{
                 background: "rgba(255, 255, 255, 0.85)",
