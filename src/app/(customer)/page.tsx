@@ -1,5 +1,5 @@
 import { Tour } from "@/types";
-import { TourCard } from "@/components/customer/tour-card";
+import { SearchHome } from "@/components/customer/search-home";
 import { isDemoMode } from "@/lib/demo-mode";
 import { DEMO_TOURS, getDemoRemainingSeats } from "@/lib/demo-data";
 
@@ -44,27 +44,5 @@ export default async function HomePage() {
     }
   }
 
-  return (
-    <div>
-      <h1 className="mb-8 text-2xl font-bold text-gray-900 sm:text-3xl">
-        셔틀 투어 예약
-      </h1>
-
-      {toursWithSeats.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-gray-300 py-16 text-center">
-          <p className="text-gray-500">예약 가능한 투어가 없습니다</p>
-        </div>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2">
-          {toursWithSeats.map(({ tour, remainingSeats }) => (
-            <TourCard
-              key={tour.id}
-              tour={tour}
-              remainingSeats={remainingSeats}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
+  return <SearchHome tours={toursWithSeats} />;
 }
