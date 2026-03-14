@@ -3,8 +3,6 @@
 import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { formatDate, getTotalPassengers } from "@/lib/utils";
-import { isDemoMode } from "@/lib/demo-mode";
-import { DEMO_RESERVATIONS, DEMO_TOURS } from "@/lib/demo-data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -38,24 +36,13 @@ export default function AdminReservationsPage() {
   const [search, setSearch] = useState("");
 
   const fetchReservations = async () => {
-    if (isDemoMode()) {
-      const withTours = DEMO_RESERVATIONS.map((r) => ({
-        ...r,
-        tour: DEMO_TOURS.find((t) => t.id === r.tour_id),
-      }));
-      setReservations(withTours as Reservation[]);
-      setLoading(false);
-      return;
+    try {
+      const res = await fetch("/api/reservations");
+      const data = await res.json();
+      setReservations((data as Reservation[]) ?? []);
+    } catch {
+      setReservations([]);
     }
-
-    const { createClient } = await import("@/lib/supabase/client");
-    const supabase = createClient();
-    const { data } = await supabase
-      .from("reservations")
-      .select("*, tour:tours(*)")
-      .order("created_at", { ascending: false });
-
-    setReservations((data as Reservation[]) ?? []);
     setLoading(false);
   };
 

@@ -1,11 +1,181 @@
 import type { Tour, Reservation } from "@/types";
 
 export const DEMO_TOURS: Tour[] = [
+  // 1주차 (3/1 ~ 3/7)
   {
-    id: "demo-tour-1",
+    id: "demo-tour-01",
     title: "제주 동부 해안 투어",
-    description:
-      "성산일출봉, 섭지코지, 만장굴 등 제주 동부의 아름다운 해안을 따라 달리는 프리미엄 셔틀 투어입니다. 전문 가이드의 설명과 함께 제주의 자연을 만끽하세요.",
+    description: "성산일출봉, 섭지코지, 만장굴 등 제주 동부의 아름다운 해안을 따라 달리는 프리미엄 셔틀 투어입니다.",
+    date: "2026-03-02",
+    departure_time: "09:00:00",
+    route: "제주시 출발 → 함덕해수욕장 → 만장굴 → 성산일출봉 → 섭지코지 → 제주시 복귀",
+    max_capacity: 20,
+    price_info: "성인 35,000원 / 아동 25,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "신제주 로터리", "함덕해수욕장"],
+    status: "active",
+    created_at: "2026-02-20T00:00:00Z",
+    updated_at: "2026-02-20T00:00:00Z",
+  },
+  {
+    id: "demo-tour-02",
+    title: "제주 서부 올레길 셔틀",
+    description: "한림공원, 협재해수욕장, 오설록 티뮤지엄 등 제주 서부의 명소를 편리하게 둘러보는 셔틀 투어입니다.",
+    date: "2026-03-04",
+    departure_time: "08:30:00",
+    route: "제주시 출발 → 한림공원 → 협재해수욕장 → 오설록 → 중문관광단지 → 제주시 복귀",
+    max_capacity: 15,
+    price_info: "성인 40,000원 / 아동 30,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "서귀포시청 앞"],
+    status: "active",
+    created_at: "2026-02-20T00:00:00Z",
+    updated_at: "2026-02-20T00:00:00Z",
+  },
+  {
+    id: "demo-tour-03",
+    title: "우도 왕복 셔틀",
+    description: "성산항에서 우도까지 왕복 셔틀 서비스. 우도에서 자유롭게 관광 후 돌아오세요.",
+    date: "2026-03-06",
+    departure_time: "10:00:00",
+    route: "제주시 출발 → 성산항 → 우도 (자유관광 4시간) → 성산항 → 제주시 복귀",
+    max_capacity: 30,
+    price_info: "성인 25,000원 / 아동 18,000원 / 유아 무료 (배 탑승료 별도)",
+    pickup_locations: ["제주시청 앞", "제주국제공항"],
+    status: "active",
+    created_at: "2026-02-20T00:00:00Z",
+    updated_at: "2026-02-20T00:00:00Z",
+  },
+  // 2주차 (3/8 ~ 3/14)
+  {
+    id: "demo-tour-04",
+    title: "한라산 영실코스 트래킹 셔틀",
+    description: "한라산 영실코스 입구까지 편리하게 이동하는 셔틀 서비스입니다. 트래킹 후 하산 시 픽업도 포함되어 있습니다.",
+    date: "2026-03-08",
+    departure_time: "07:00:00",
+    route: "제주시 출발 → 영실 탐방로 입구 (하산 후 픽업 포함)",
+    max_capacity: 25,
+    price_info: "성인 20,000원 / 아동 15,000원",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "서귀포시청 앞", "중문관광단지"],
+    status: "active",
+    created_at: "2026-02-25T00:00:00Z",
+    updated_at: "2026-02-25T00:00:00Z",
+  },
+  {
+    id: "demo-tour-05",
+    title: "제주 남부 해안 드라이브 셔틀",
+    description: "중문, 천지연폭포, 정방폭포 등 제주 남부 해안을 따라 달리는 셔틀 투어입니다.",
+    date: "2026-03-10",
+    departure_time: "09:30:00",
+    route: "제주시 출발 → 중문관광단지 → 천지연폭포 → 정방폭포 → 서귀포 → 제주시 복귀",
+    max_capacity: 20,
+    price_info: "성인 38,000원 / 아동 28,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "신제주 로터리"],
+    status: "active",
+    created_at: "2026-02-25T00:00:00Z",
+    updated_at: "2026-02-25T00:00:00Z",
+  },
+  {
+    id: "demo-tour-06",
+    title: "제주 동부 해안 투어",
+    description: "성산일출봉, 섭지코지, 만장굴 등 제주 동부의 아름다운 해안을 따라 달리는 프리미엄 셔틀 투어입니다.",
+    date: "2026-03-12",
+    departure_time: "09:00:00",
+    route: "제주시 출발 → 함덕해수욕장 → 만장굴 → 성산일출봉 → 섭지코지 → 제주시 복귀",
+    max_capacity: 20,
+    price_info: "성인 35,000원 / 아동 25,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "신제주 로터리", "함덕해수욕장"],
+    status: "active",
+    created_at: "2026-03-01T00:00:00Z",
+    updated_at: "2026-03-01T00:00:00Z",
+  },
+  {
+    id: "demo-tour-07",
+    title: "우도 왕복 셔틀",
+    description: "성산항에서 우도까지 왕복 셔틀 서비스. 우도에서 자유롭게 관광 후 돌아오세요.",
+    date: "2026-03-14",
+    departure_time: "10:00:00",
+    route: "제주시 출발 → 성산항 → 우도 (자유관광 4시간) → 성산항 → 제주시 복귀",
+    max_capacity: 30,
+    price_info: "성인 25,000원 / 아동 18,000원 / 유아 무료 (배 탑승료 별도)",
+    pickup_locations: ["제주시청 앞", "제주국제공항"],
+    status: "active",
+    created_at: "2026-03-01T00:00:00Z",
+    updated_at: "2026-03-01T00:00:00Z",
+  },
+  // 3주차 (3/15 ~ 3/21)
+  {
+    id: "demo-tour-08",
+    title: "제주 서부 올레길 셔틀",
+    description: "한림공원, 협재해수욕장, 오설록 티뮤지엄 등 제주 서부의 명소를 편리하게 둘러보는 셔틀 투어입니다.",
+    date: "2026-03-15",
+    departure_time: "08:30:00",
+    route: "제주시 출발 → 한림공원 → 협재해수욕장 → 오설록 → 중문관광단지 → 제주시 복귀",
+    max_capacity: 15,
+    price_info: "성인 40,000원 / 아동 30,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "서귀포시청 앞"],
+    status: "active",
+    created_at: "2026-03-05T00:00:00Z",
+    updated_at: "2026-03-05T00:00:00Z",
+  },
+  {
+    id: "demo-tour-09",
+    title: "제주 동부 해안 투어",
+    description: "성산일출봉, 섭지코지, 만장굴 등 제주 동부의 아름다운 해안을 따라 달리는 프리미엄 셔틀 투어입니다.",
+    date: "2026-03-16",
+    departure_time: "09:00:00",
+    route: "제주시 출발 → 함덕해수욕장 → 만장굴 → 성산일출봉 → 섭지코지 → 제주시 복귀",
+    max_capacity: 20,
+    price_info: "성인 35,000원 / 아동 25,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "신제주 로터리", "함덕해수욕장"],
+    status: "active",
+    created_at: "2026-03-05T00:00:00Z",
+    updated_at: "2026-03-05T00:00:00Z",
+  },
+  {
+    id: "demo-tour-10",
+    title: "한라산 영실코스 트래킹 셔틀",
+    description: "한라산 영실코스 입구까지 편리하게 이동하는 셔틀 서비스입니다. 트래킹 후 하산 시 픽업도 포함되어 있습니다.",
+    date: "2026-03-17",
+    departure_time: "07:00:00",
+    route: "제주시 출발 → 영실 탐방로 입구 (하산 후 픽업 포함)",
+    max_capacity: 25,
+    price_info: "성인 20,000원 / 아동 15,000원",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "서귀포시청 앞", "중문관광단지"],
+    status: "active",
+    created_at: "2026-03-05T00:00:00Z",
+    updated_at: "2026-03-05T00:00:00Z",
+  },
+  {
+    id: "demo-tour-11",
+    title: "제주 남부 해안 드라이브 셔틀",
+    description: "중문, 천지연폭포, 정방폭포 등 제주 남부 해안을 따라 달리는 셔틀 투어입니다.",
+    date: "2026-03-18",
+    departure_time: "09:30:00",
+    route: "제주시 출발 → 중문관광단지 → 천지연폭포 → 정방폭포 → 서귀포 → 제주시 복귀",
+    max_capacity: 20,
+    price_info: "성인 38,000원 / 아동 28,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "신제주 로터리"],
+    status: "active",
+    created_at: "2026-03-05T00:00:00Z",
+    updated_at: "2026-03-05T00:00:00Z",
+  },
+  {
+    id: "demo-tour-12",
+    title: "우도 왕복 셔틀",
+    description: "성산항에서 우도까지 왕복 셔틀 서비스. 우도에서 자유롭게 관광 후 돌아오세요.",
+    date: "2026-03-19",
+    departure_time: "10:00:00",
+    route: "제주시 출발 → 성산항 → 우도 (자유관광 4시간) → 성산항 → 제주시 복귀",
+    max_capacity: 30,
+    price_info: "성인 25,000원 / 아동 18,000원 / 유아 무료 (배 탑승료 별도)",
+    pickup_locations: ["제주시청 앞", "제주국제공항"],
+    status: "active",
+    created_at: "2026-03-05T00:00:00Z",
+    updated_at: "2026-03-05T00:00:00Z",
+  },
+  {
+    id: "demo-tour-13",
+    title: "제주 동부 해안 투어",
+    description: "성산일출봉, 섭지코지, 만장굴 등 제주 동부의 아름다운 해안을 따라 달리는 프리미엄 셔틀 투어입니다.",
     date: "2026-03-20",
     departure_time: "09:00:00",
     route: "제주시 출발 → 함덕해수욕장 → 만장굴 → 성산일출봉 → 섭지코지 → 제주시 복귀",
@@ -17,10 +187,9 @@ export const DEMO_TOURS: Tour[] = [
     updated_at: "2026-03-10T00:00:00Z",
   },
   {
-    id: "demo-tour-2",
+    id: "demo-tour-14",
     title: "제주 서부 올레길 셔틀",
-    description:
-      "한림공원, 협재해수욕장, 오설록 티뮤지엄 등 제주 서부의 명소를 편리하게 둘러보는 셔틀 투어입니다.",
+    description: "한림공원, 협재해수욕장, 오설록 티뮤지엄 등 제주 서부의 명소를 편리하게 둘러보는 셔틀 투어입니다.",
     date: "2026-03-21",
     departure_time: "08:30:00",
     route: "제주시 출발 → 한림공원 → 협재해수욕장 → 오설록 → 중문관광단지 → 제주시 복귀",
@@ -31,11 +200,11 @@ export const DEMO_TOURS: Tour[] = [
     created_at: "2026-03-10T00:00:00Z",
     updated_at: "2026-03-10T00:00:00Z",
   },
+  // 4주차 (3/22 ~ 3/28)
   {
-    id: "demo-tour-3",
+    id: "demo-tour-15",
     title: "한라산 영실코스 트래킹 셔틀",
-    description:
-      "한라산 영실코스 입구까지 편리하게 이동하는 셔틀 서비스입니다. 트래킹 후 하산 시 픽업도 포함되어 있습니다.",
+    description: "한라산 영실코스 입구까지 편리하게 이동하는 셔틀 서비스입니다. 트래킹 후 하산 시 픽업도 포함되어 있습니다.",
     date: "2026-03-22",
     departure_time: "07:00:00",
     route: "제주시 출발 → 영실 탐방로 입구 (하산 후 픽업 포함)",
@@ -47,25 +216,83 @@ export const DEMO_TOURS: Tour[] = [
     updated_at: "2026-03-10T00:00:00Z",
   },
   {
-    id: "demo-tour-4",
+    id: "demo-tour-16",
+    title: "제주 남부 해안 드라이브 셔틀",
+    description: "중문, 천지연폭포, 정방폭포 등 제주 남부 해안을 따라 달리는 셔틀 투어입니다.",
+    date: "2026-03-24",
+    departure_time: "09:30:00",
+    route: "제주시 출발 → 중문관광단지 → 천지연폭포 → 정방폭포 → 서귀포 → 제주시 복귀",
+    max_capacity: 20,
+    price_info: "성인 38,000원 / 아동 28,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "신제주 로터리"],
+    status: "active",
+    created_at: "2026-03-10T00:00:00Z",
+    updated_at: "2026-03-10T00:00:00Z",
+  },
+  {
+    id: "demo-tour-17",
     title: "우도 왕복 셔틀",
     description: "성산항에서 우도까지 왕복 셔틀 서비스. 우도에서 자유롭게 관광 후 돌아오세요.",
-    date: "2026-03-19",
+    date: "2026-03-26",
     departure_time: "10:00:00",
     route: "제주시 출발 → 성산항 → 우도 (자유관광 4시간) → 성산항 → 제주시 복귀",
     max_capacity: 30,
     price_info: "성인 25,000원 / 아동 18,000원 / 유아 무료 (배 탑승료 별도)",
     pickup_locations: ["제주시청 앞", "제주국제공항"],
-    status: "closed",
-    created_at: "2026-03-05T00:00:00Z",
+    status: "active",
+    created_at: "2026-03-10T00:00:00Z",
+    updated_at: "2026-03-10T00:00:00Z",
+  },
+  // 5주차 (3/29 ~ 3/31)
+  {
+    id: "demo-tour-18",
+    title: "제주 동부 해안 투어",
+    description: "성산일출봉, 섭지코지, 만장굴 등 제주 동부의 아름다운 해안을 따라 달리는 프리미엄 셔틀 투어입니다.",
+    date: "2026-03-29",
+    departure_time: "09:00:00",
+    route: "제주시 출발 → 함덕해수욕장 → 만장굴 → 성산일출봉 → 섭지코지 → 제주시 복귀",
+    max_capacity: 20,
+    price_info: "성인 35,000원 / 아동 25,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "신제주 로터리", "함덕해수욕장"],
+    status: "active",
+    created_at: "2026-03-15T00:00:00Z",
+    updated_at: "2026-03-15T00:00:00Z",
+  },
+  {
+    id: "demo-tour-19",
+    title: "제주 서부 올레길 셔틀",
+    description: "한림공원, 협재해수욕장, 오설록 티뮤지엄 등 제주 서부의 명소를 편리하게 둘러보는 셔틀 투어입니다.",
+    date: "2026-03-30",
+    departure_time: "08:30:00",
+    route: "제주시 출발 → 한림공원 → 협재해수욕장 → 오설록 → 중문관광단지 → 제주시 복귀",
+    max_capacity: 15,
+    price_info: "성인 40,000원 / 아동 30,000원 / 유아 무료",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "서귀포시청 앞"],
+    status: "active",
+    created_at: "2026-03-15T00:00:00Z",
+    updated_at: "2026-03-15T00:00:00Z",
+  },
+  {
+    id: "demo-tour-20",
+    title: "한라산 영실코스 트래킹 셔틀",
+    description: "한라산 영실코스 입구까지 편리하게 이동하는 셔틀 서비스입니다. 트래킹 후 하산 시 픽업도 포함되어 있습니다.",
+    date: "2026-03-31",
+    departure_time: "07:00:00",
+    route: "제주시 출발 → 영실 탐방로 입구 (하산 후 픽업 포함)",
+    max_capacity: 25,
+    price_info: "성인 20,000원 / 아동 15,000원",
+    pickup_locations: ["제주시청 앞", "제주국제공항", "서귀포시청 앞", "중문관광단지"],
+    status: "active",
+    created_at: "2026-03-15T00:00:00Z",
     updated_at: "2026-03-15T00:00:00Z",
   },
 ];
 
-export const DEMO_RESERVATIONS: Reservation[] = [
+// Initial demo reservations
+const INITIAL_DEMO_RESERVATIONS: Reservation[] = [
   {
     id: "demo-res-1",
-    tour_id: "demo-tour-1",
+    tour_id: "demo-tour-13",
     reservation_number: "SH260314-A1B2",
     name: "김민수",
     phone: "010-1234-5678",
@@ -82,7 +309,7 @@ export const DEMO_RESERVATIONS: Reservation[] = [
   },
   {
     id: "demo-res-2",
-    tour_id: "demo-tour-1",
+    tour_id: "demo-tour-13",
     reservation_number: "SH260314-C3D4",
     name: "이지영",
     phone: "010-9876-5432",
@@ -99,7 +326,7 @@ export const DEMO_RESERVATIONS: Reservation[] = [
   },
   {
     id: "demo-res-3",
-    tour_id: "demo-tour-2",
+    tour_id: "demo-tour-14",
     reservation_number: "SH260314-E5F6",
     name: "박성준",
     phone: "010-5555-1234",
@@ -116,7 +343,7 @@ export const DEMO_RESERVATIONS: Reservation[] = [
   },
   {
     id: "demo-res-4",
-    tour_id: "demo-tour-3",
+    tour_id: "demo-tour-15",
     reservation_number: "SH260314-G7H8",
     name: "최은비",
     phone: "010-3333-7777",
@@ -133,7 +360,7 @@ export const DEMO_RESERVATIONS: Reservation[] = [
   },
   {
     id: "demo-res-5",
-    tour_id: "demo-tour-1",
+    tour_id: "demo-tour-13",
     reservation_number: "SH260314-I9J0",
     name: "정하늘",
     phone: "010-7777-8888",
@@ -150,12 +377,29 @@ export const DEMO_RESERVATIONS: Reservation[] = [
   },
 ];
 
+// In-memory store for demo reservations (survives across requests in same server process)
+let _demoReservations: Reservation[] | null = null;
+
+export function getDemoReservations(): Reservation[] {
+  if (_demoReservations === null) {
+    _demoReservations = [...INITIAL_DEMO_RESERVATIONS];
+  }
+  return _demoReservations;
+}
+
+export function addDemoReservation(reservation: Reservation): void {
+  getDemoReservations().push(reservation);
+}
+
+// Keep DEMO_RESERVATIONS as a getter for backward compatibility
+export const DEMO_RESERVATIONS = INITIAL_DEMO_RESERVATIONS;
+
 export function getDemoReservationsForTour(tourId: string): Reservation[] {
-  return DEMO_RESERVATIONS.filter((r) => r.tour_id === tourId);
+  return getDemoReservations().filter((r) => r.tour_id === tourId);
 }
 
 export function getDemoRemainingSeats(tour: Tour): number {
-  const confirmed = DEMO_RESERVATIONS.filter(
+  const confirmed = getDemoReservations().filter(
     (r) => r.tour_id === tour.id && r.status === "confirmed"
   );
   const totalPassengers = confirmed.reduce(

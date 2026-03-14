@@ -5,7 +5,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { isDemoMode } from "@/lib/demo-mode";
-import { DEMO_TOURS, DEMO_RESERVATIONS } from "@/lib/demo-data";
+import { DEMO_TOURS, getDemoReservations } from "@/lib/demo-data";
 
 export default async function AdminDashboardPage() {
   let todayTours = 0;
@@ -15,11 +15,12 @@ export default async function AdminDashboardPage() {
   if (isDemoMode()) {
     const today = new Date().toISOString().slice(0, 10);
     todayTours = DEMO_TOURS.filter((t) => t.date === today).length;
-    todayReservations = DEMO_RESERVATIONS.filter((r) => {
+    const demoRes = getDemoReservations();
+    todayReservations = demoRes.filter((r) => {
       const tour = DEMO_TOURS.find((t) => t.id === r.tour_id);
       return tour?.date === today;
     }).length;
-    pendingReservations = DEMO_RESERVATIONS.filter(
+    pendingReservations = demoRes.filter(
       (r) => r.status === "pending"
     ).length;
   } else {

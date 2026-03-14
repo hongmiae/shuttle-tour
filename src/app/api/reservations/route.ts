@@ -2,6 +2,31 @@ import { NextRequest, NextResponse } from "next/server";
 import { generateReservationNumber, getTotalPassengers } from "@/lib/utils";
 import { isDemoMode } from "@/lib/demo-mode";
 
+export async function GET() {
+  try {
+    if (isDemoMode()) {
+      const { getDemoReservations, DEMO_TOURS } = await import("@/lib/demo-data");
+      const reservations = getDemoReservations().map((r) => ({
+        ...r,
+        tour: DEMO_TOURS.find((t) => t.id === r.tour_id) || null,
+      }));
+      return NextResponse.json(reservations);
+    }
+
+    const { createClient } = await import("@/lib/supabase/server");
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from("reservations")
+      .select("*, tour:tours(*)")
+      .order("created_at", { ascending: false });
+
+    return NextResponse.json(data ?? []);
+  } catch (error) {
+    console.error("Reservations GET error:", error);
+    return NextResponse.json([], { status: 500 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -56,9 +81,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Demo mode: just return a reservation number
+    // Demo mode: save to in-memory store and return reservation number
     if (isDemoMode()) {
+      const { addDemoReservation, DEMO_TOURS } = await import("@/lib/demo-data");
       const reservationNumber = generateReservationNumber();
+      const tour = DEMO_TOURS.find((t) => t.id === tour_id);
+
+      addDemoReservation({
+        id: `demo-res-${Date.now()}`,
+        tour_id,
+        reservation_number: reservationNumber,
+        name: name.trim(),
+        phone: phone.trim(),
+        email: email || null,
+        adult_count: Number(adult_count) || 0,
+        child_count: Number(child_count) || 0,
+        infant_count: Number(infant_count) || 0,
+        pickup_location,
+        memo: memo || null,
+        status: "confirmed",
+        created_by: null,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        tour: tour || undefined,
+      });
+
       return NextResponse.json(
         { reservation_number: reservationNumber },
         { status: 201 }
